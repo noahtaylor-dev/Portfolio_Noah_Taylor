@@ -79,8 +79,45 @@ export const projects = [
       { url: "/home.jpeg", alt: "Main lighting control interface" },
       { url: "/auto.jpeg", alt: "Automation activation cards" },
       { url: "/spotify.jpeg", alt: "Spotify playback display" },
-      { url: "/speaker.jpeg", alt: "Speaker volume adjustment + Spotify playlist cards" },
+      { url: "/speaker.jpeg", alt: "Spotify queue and search implementation" },
       { url: "/build.jpeg", alt: "Raspberry Pi hardware setup and mounting" }
+    ]
+  },
+  {
+    slug: "cli-auditor",
+    title: "Audit-CLI: AI Powered Pre-Commit Guardrails",
+    description: "A terminal based security engine that uses the Claude API to audit staged git changes for vulnerabilities and logical errors, providing a safety layer for developers using AI in their coding workflow.",
+    techStack: ["Node.js", "Claude API", "Git CLI", "Claude Code", "Regex", "Security Auditing"],
+    
+    overview: "I architected this tool to address security concerns for developers integrating AI into their coding processes. It acts as a mandatory second set of eyes, using LLM semantic analysis to catch errors that standard linters might miss, such as SQL injection or missing async awaits.",
+    
+    techBreakdown: [
+      {
+        tech: "Claude API (Anthropic)",
+        details: "Integrated the Anthropic Claude API with support for multiple models via CLI flags. I engineered strict system prompts to return high accuracy JSON risk reports."
+      },
+      {
+        tech: "Node.js & Git CLI",
+        details: "Built the core engine to interface directly with local Git repositories, dynamically fetching staged changes for targeted auditing."
+      },
+      {
+        tech: "Claude Code",
+        details: "Used Claude Code for rapid prototyping and scaffolded the CLI infrastructure, focusing manual efforts on the security logic and prompt engineering contract."
+      }
+    ],
+
+    features: [
+      "Real-time semantic scanning for OWASP Top 10 vulnerabilities",
+      "Logical bug detection to identify flaws in code flow",
+      "Automated risk scoring on a 1 to 10 scale with concrete, actionable fix suggestions",
+      "Git integrated workflow supporting staged, unstaged, and branch level diffs",
+      "Zero trust architecture: Only processes code diffs and never stores proprietary data",
+      "Human in the loop design: Exit codes allow it to be used as a pre-commit hook"
+    ],
+
+    images: [
+      { url: "/cli-auditor-main.png", alt: "CLI dashboard showing a High Risk warning for a hardcoded API key" },
+      { url: "/cli-auditor-report.png", alt: "Detailed JSON audit report with line by line security suggestions" }
     ]
   },
  {
@@ -114,43 +151,8 @@ export const projects = [
     ],
 
     images: [
-      { url: "/wordtracker-code.png", alt: "Custom tokenization algorithm and nested map architecture" },
+      { url: "/wordtracker-code.svg", alt: "Architectural diagram of the data processing pipeline including text tokenization custom BST logic and binary state serialization for persistence" },
       { url: "/wordtracker-terminal.png", alt: "CLI output displaying word frequencies, source files, and specific line numbers" }
     ]
-  },
-  {
-    slug: "xml-parser",
-    title: "XML Validator & Custom Data Structures",
-    description: "A Java command-line tool that checks XML documents for formatting errors. Built from scratch using custom data structures instead of standard Java libraries.",
-    techStack: ["Java", "Custom ADTs", "Data Validation", "JUnit Testing", "CLI"],
-    
-    overview: "Missing tags or broken formatting in XML files can easily cause programs to crash. I built a tool to safely scan these files, check their structure, and report any errors. To better understand how memory is managed under the hood, I avoided standard Java libraries and built the core architecture from scratch, using my own Stacks, Queues, and Linked Lists.",
-    
-    techBreakdown: [
-      {
-        tech: "Custom Data Structures",
-        details: "Wrote custom Stacks, Queues, and Doubly Linked Lists to read through documents and track errors. This gave me direct control over how the program uses memory."
-      },
-      {
-        tech: "Validation Engine",
-        details: "Built a parser that reads documents line-by-line. It uses the custom Stack to match opening and closing tags to make sure the file is formatted correctly."
-      },
-      {
-        tech: "Software Testing",
-        details: "Wrote JUnit test suites to prove that the custom data structures work reliably and that the parser can handle broken data without crashing."
-      }
-    ],
-
-    features: [
-      "Checks XML files for missing tags to prevent application crashes",
-      "Built entirely with custom Stacks, Queues, and Doubly Linked Lists",
-      "Prints clear, line-by-line error reports to help users fix broken files",
-      "Tested with JUnit to make sure the code is reliable"
-    ],
-
-    images: [
-      { url: "/xml-parser-code.png", alt: "Custom XML validator code" },
-      { url: "/xml-parser-terminal.png", alt: "Terminal output showing line-by-line error reports" }
-    ]
-  },
+  },  
 ];
